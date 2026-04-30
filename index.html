@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEW LIFE CHAMPIONS LEAGUE 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .glass { background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.1); }
+  </style>
+</head>
+<body class="bg-slate-950 text-white">
+  <nav class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
+      <div class="flex items-center gap-3">
+        <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-xl font-black text-slate-950">NL</div>
+        <div>
+          <p class="text-sm font-black leading-none">NEW LIFE</p>
+          <p class="text-xs font-bold tracking-[0.2em] text-emerald-300">CHAMPIONS LEAGUE 2026</p>
+        </div>
+      </div>
+      <div class="hidden items-center gap-6 text-sm font-semibold text-slate-300 md:flex">
+        <a href="#fixtures" class="hover:text-white">ตารางแข่ง</a>
+        <a href="#table" class="hover:text-white">ตารางคะแนน</a>
+        <a href="#teams" class="hover:text-white">ทีม</a>
+        <a href="#contact" class="hover:text-white">ติดต่อ</a>
+      </div>
+      <a href="#contact" class="rounded-2xl bg-emerald-400 px-5 py-3 font-black text-slate-950 hover:bg-emerald-300">สมัครทีม</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 md:grid-cols-[1.1fr_0.9fr] md:px-8 md:py-24">
+      <div>
+        <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-xs font-bold text-emerald-200">
+          ★ ฟุตบอลลีก 8 ทีม / 7 สัปดาห์ / แข่งทุกวันอาทิตย์
+        </div>
+        <h1 class="max-w-4xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
+          NEW LIFE<br>
+          <span class="bg-gradient-to-r from-emerald-300 via-cyan-200 to-white bg-clip-text text-transparent">CHAMPIONS LEAGUE</span>
+        </h1>
+        <p class="mt-6 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
+          เว็บหลักสำหรับประกาศข่าว ตารางแข่งขัน ตารางคะแนน ทีมที่เข้าร่วม และข้อมูลผู้สนับสนุนของลีกฟุตบอล NEW LIFE CHAMPIONS LEAGUE 2026
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="#fixtures" class="inline-flex items-center justify-center rounded-2xl bg-white px-7 py-3 font-black text-slate-950 hover:bg-slate-200">ดูตารางแข่งขัน →</a>
+          <a href="#contact" class="inline-flex items-center justify-center rounded-2xl border border-white/20 bg-white/5 px-7 py-3 font-black text-white hover:bg-white/10">ติดต่อฝ่ายจัด</a>
+        </div>
+        <div class="mt-10 grid max-w-xl grid-cols-3 gap-3">
+          <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-center"><p class="text-3xl font-black text-emerald-300">8</p><p class="mt-1 text-xs font-bold text-slate-400">ทีม</p></div>
+          <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-center"><p class="text-3xl font-black text-emerald-300">28</p><p class="mt-1 text-xs font-bold text-slate-400">แมตช์</p></div>
+          <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-center"><p class="text-3xl font-black text-emerald-300">7</p><p class="mt-1 text-xs font-bold text-slate-400">สัปดาห์</p></div>
+        </div>
+      </div>
+
+      <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] shadow-2xl shadow-emerald-950/40">
+        <div class="bg-gradient-to-br from-emerald-400 to-cyan-400 p-6 text-slate-950">
+          <p class="text-xs font-black uppercase tracking-[0.3em]">Next Matchday</p>
+          <h3 class="mt-2 text-3xl font-black">MATCH WEEK 1</h3>
+          <p class="mt-2 text-sm font-bold">อาทิตย์ 5 กรกฎาคม 2569</p>
+        </div>
+        <div id="nextMatches" class="divide-y divide-white/10 p-4"></div>
+      </div>
+    </section>
+
+    <section id="fixtures" class="mx-auto max-w-7xl px-4 py-14 md:px-8">
+      <div class="mx-auto mb-8 max-w-3xl text-center">
+        <p class="mb-2 text-xs font-black uppercase tracking-[0.35em] text-emerald-300">Fixtures</p>
+        <h2 class="text-3xl font-black tracking-tight text-white md:text-5xl">ตารางแข่งขัน</h2>
+        <p class="mt-3 text-sm leading-7 text-slate-300 md:text-base">ระบบลีกพบกันหมด 8 ทีม แข่ง 7 สัปดาห์ คู่ละ 2 ชั่วโมง พัก 30 นาทีระหว่างคู่ที่ 2 และคู่ที่ 3</p>
+      </div>
+      <div id="weekTabs" class="mb-6 flex gap-2 overflow-x-auto pb-2"></div>
+      <div class="rounded-[2rem] border border-white/10 bg-white/[0.05] p-5 md:p-8">
+        <div class="mb-6 flex flex-col justify-between gap-2 md:flex-row md:items-center">
+          <div>
+            <p id="matchWeekLabel" class="text-sm font-bold text-emerald-300">Match Week 1</p>
+            <h3 id="matchDateLabel" class="text-2xl font-black text-white">อาทิตย์ 5 กรกฎาคม 2569</h3>
+          </div>
+          <div class="rounded-2xl bg-white/5 px-4 py-3 text-sm text-slate-300">เริ่มคู่แรก 09:00 น.</div>
+        </div>
+        <div id="fixtureGrid" class="grid gap-3 md:grid-cols-2"></div>
+      </div>
+    </section>
+
+    <section id="table" class="mx-auto max-w-7xl px-4 py-14 md:px-8">
+      <div class="mx-auto mb-8 max-w-3xl text-center">
+        <p class="mb-2 text-xs font-black uppercase tracking-[0.35em] text-emerald-300">Standings</p>
+        <h2 class="text-3xl font-black tracking-tight text-white md:text-5xl">ตารางคะแนน</h2>
+        <p class="mt-3 text-sm leading-7 text-slate-300 md:text-base">หลังจบแต่ละสัปดาห์ สามารถอัปเดตผลการแข่งขันและอันดับทีมได้ทันที</p>
+      </div>
+      <div class="overflow-x-auto rounded-[2rem] border border-white/10 bg-white/[0.05]">
+        <table class="w-full min-w-[760px] text-left text-sm">
+          <thead class="bg-white/10 text-xs uppercase tracking-wider text-slate-300">
+            <tr>
+              <th class="px-5 py-4">อันดับ</th><th class="px-5 py-4">ทีม</th><th class="px-5 py-4 text-center">แข่ง</th><th class="px-5 py-4 text-center">ชนะ</th><th class="px-5 py-4 text-center">เสมอ</th><th class="px-5 py-4 text-center">แพ้</th><th class="px-5 py-4 text-center">ได้</th><th class="px-5 py-4 text-center">เสีย</th><th class="px-5 py-4 text-center">แต้ม</th>
+            </tr>
+          </thead>
+          <tbody id="standingsBody" class="divide-y divide-white/10"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="teams" class="mx-auto max-w-7xl px-4 py-14 md:px-8">
+      <div class="mx-auto mb-8 max-w-3xl text-center">
+        <p class="mb-2 text-xs font-black uppercase tracking-[0.35em] text-emerald-300">Teams</p>
+        <h2 class="text-3xl font-black tracking-tight text-white md:text-5xl">ทีมเข้าร่วม</h2>
+        <p class="mt-3 text-sm leading-7 text-slate-300 md:text-base">ใส่โลโก้จริง สีประจำทีม รายชื่อนักเตะ และลิงก์โปรไฟล์ทีมได้ในเวอร์ชันถัดไป</p>
+      </div>
+      <div id="teamsGrid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"></div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-4 py-14 md:px-8">
+      <div class="mx-auto mb-8 max-w-3xl text-center">
+        <p class="mb-2 text-xs font-black uppercase tracking-[0.35em] text-emerald-300">News</p>
+        <h2 class="text-3xl font-black tracking-tight text-white md:text-5xl">ข่าวและประกาศ</h2>
+      </div>
+      <div id="newsGrid" class="grid gap-4 md:grid-cols-3"></div>
+    </section>
+
+    <section id="contact" class="mx-auto max-w-7xl px-4 py-14 md:px-8 md:pb-24">
+      <div class="overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-emerald-400 to-cyan-400 p-8 text-slate-950 md:p-12">
+        <div class="grid items-center gap-8 md:grid-cols-[1fr_auto]">
+          <div>
+            <p class="mb-2 text-xs font-black uppercase tracking-[0.35em]">Partner With Us</p>
+            <h2 class="text-3xl font-black tracking-tight md:text-5xl">เปิดรับทีม / สปอนเซอร์ / ร้านค้าพาร์ทเนอร์</h2>
+            <p class="mt-4 max-w-2xl text-sm font-semibold leading-7 text-slate-800 md:text-base">เหมาะสำหรับธุรกิจที่ต้องการเข้าถึงกลุ่มนักกีฬา ผู้ปกครอง แฟนบอลท้องถิ่น และคอมมูนิตี้ฟุตบอลเยาวชน</p>
+          </div>
+          <div class="grid gap-3 sm:grid-cols-3 md:grid-cols-1">
+            <a class="inline-flex justify-center rounded-2xl bg-slate-950 px-5 py-3 font-black text-white hover:bg-slate-800" href="#">สมัครทีม</a>
+            <a class="inline-flex justify-center rounded-2xl bg-white px-5 py-3 font-black text-slate-950 hover:bg-slate-100" href="#">เป็นสปอนเซอร์</a>
+            <a class="inline-flex justify-center rounded-2xl bg-white/40 px-5 py-3 font-black text-slate-950 hover:bg-white/50" href="#">ติดต่อฝ่ายจัด</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const teams = ["TEAM A","TEAM B","TEAM C","TEAM D","TEAM E","TEAM F","TEAM G","TEAM H"].map((name, i) => ({ name, short: String.fromCharCode(65+i), played:0, win:0, draw:0, lose:0, gf:0, ga:0, pts:0 }));
+    const fixtures = [
+      {week:1,date:"อาทิตย์ 5 กรกฎาคม 2569",matches:[["09:00","TEAM A","TEAM B"],["11:00","TEAM C","TEAM D"],["13:30","TEAM E","TEAM F"],["15:30","TEAM G","TEAM H"]]},
+      {week:2,date:"อาทิตย์ 12 กรกฎาคม 2569",matches:[["09:00","TEAM A","TEAM C"],["11:00","TEAM B","TEAM D"],["13:30","TEAM E","TEAM G"],["15:30","TEAM F","TEAM H"]]},
+      {week:3,date:"อาทิตย์ 19 กรกฎาคม 2569",matches:[["09:00","TEAM A","TEAM D"],["11:00","TEAM B","TEAM C"],["13:30","TEAM E","TEAM H"],["15:30","TEAM F","TEAM G"]]},
+      {week:4,date:"อาทิตย์ 26 กรกฎาคม 2569",matches:[["09:00","TEAM A","TEAM E"],["11:00","TEAM B","TEAM F"],["13:30","TEAM C","TEAM G"],["15:30","TEAM D","TEAM H"]]},
+      {week:5,date:"อาทิตย์ 2 สิงหาคม 2569",matches:[["09:00","TEAM A","TEAM F"],["11:00","TEAM B","TEAM E"],["13:30","TEAM C","TEAM H"],["15:30","TEAM D","TEAM G"]]},
+      {week:6,date:"อาทิตย์ 9 สิงหาคม 2569",matches:[["09:00","TEAM A","TEAM G"],["11:00","TEAM B","TEAM H"],["13:30","TEAM C","TEAM E"],["15:30","TEAM D","TEAM F"]]},
+      {week:7,date:"อาทิตย์ 16 สิงหาคม 2569",matches:[["09:00","TEAM A","TEAM H"],["11:00","TEAM B","TEAM G"],["13:30","TEAM C","TEAM F"],["15:30","TEAM D","TEAM E"]]}
+    ];
+    const news = [
+      ["ประกาศ","เปิดตัว NEW LIFE CHAMPIONS LEAGUE 2026","ฟุตบอลลีก 8 ทีม แข่งทุกวันอาทิตย์ ระบบลีกเต็มรูปแบบ 7 สัปดาห์"],
+      ["ตารางแข่ง","คู่แรกเริ่ม 09:00 น. ต่อเนื่อง 4 คู่ต่อวัน","พัก 30 นาทีระหว่างคู่ที่ 2 และคู่ที่ 3 เพื่อจัดการสนามและถ่ายทอดสด"],
+      ["พาร์ทเนอร์","เปิดรับผู้สนับสนุนและร้านค้าในพื้นที่","เหมาะกับแบรนด์ท้องถิ่น ร้านอาหาร โรงเรียน สถานประกอบการ และธุรกิจกีฬา"]
+    ];
+
+    function matchCard([time, home, away]) {
+      return `<div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5"><div class="mb-4 flex items-center justify-between"><span class="rounded-xl bg-emerald-400 px-3 py-1 text-xs font-black text-slate-950">${time}</span><span class="text-xs font-bold text-slate-400">สนามหลัก</span></div><div class="grid grid-cols-[1fr_auto_1fr] items-center gap-3 text-center"><p class="font-black text-white">${home}</p><p class="rounded-full bg-white/10 px-3 py-1 text-xs font-black text-slate-400">VS</p><p class="font-black text-white">${away}</p></div></div>`;
+    }
+    function nextMatchRow([time, home, away]) {
+      return `<div class="grid grid-cols-[70px_1fr] items-center gap-4 py-4"><div class="rounded-2xl bg-white/10 px-3 py-2 text-center text-sm font-black text-emerald-200">${time}</div><div><p class="text-sm font-black text-white">${home} <span class="text-slate-500">vs</span> ${away}</p><p class="mt-1 text-xs text-slate-400">สนาม: สนามหลัก</p></div></div>`;
+    }
+    function renderFixtures(week) {
+      const f = fixtures.find(x => x.week === week) || fixtures[0];
+      document.getElementById('matchWeekLabel').textContent = `Match Week ${f.week}`;
+      document.getElementById('matchDateLabel').textContent = f.date;
+      document.getElementById('fixtureGrid').innerHTML = f.matches.map(matchCard).join('');
+      document.querySelectorAll('[data-week]').forEach(btn => {
+        if (Number(btn.dataset.week) === week) btn.className = 'min-w-[92px] rounded-2xl px-4 py-3 text-sm font-black transition bg-emerald-400 text-slate-950';
+        else btn.className = 'min-w-[92px] rounded-2xl px-4 py-3 text-sm font-black transition bg-white/5 text-slate-300 hover:bg-white/10';
+      });
+    }
+    document.getElementById('nextMatches').innerHTML = fixtures[0].matches.map(nextMatchRow).join('');
+    document.getElementById('weekTabs').innerHTML = fixtures.map(f => `<button data-week="${f.week}" class="min-w-[92px] rounded-2xl px-4 py-3 text-sm font-black transition bg-white/5 text-slate-300 hover:bg-white/10">Week ${f.week}</button>`).join('');
+    document.getElementById('weekTabs').addEventListener('click', e => { if (e.target.dataset.week) renderFixtures(Number(e.target.dataset.week)); });
+    document.getElementById('standingsBody').innerHTML = teams.map((t, i) => `<tr class="hover:bg-white/[0.03]"><td class="px-5 py-4 font-black text-emerald-300">${i+1}</td><td class="px-5 py-4"><div class="flex items-center gap-3"><div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-400 text-sm font-black text-slate-950">${t.short}</div><span class="font-semibold text-slate-100">${t.name}</span></div></td><td class="px-5 py-4 text-center text-slate-300">0</td><td class="px-5 py-4 text-center text-slate-300">0</td><td class="px-5 py-4 text-center text-slate-300">0</td><td class="px-5 py-4 text-center text-slate-300">0</td><td class="px-5 py-4 text-center text-slate-300">0</td><td class="px-5 py-4 text-center text-slate-300">0</td><td class="px-5 py-4 text-center text-lg font-black text-white">0</td></tr>`).join('');
+    document.getElementById('teamsGrid').innerHTML = teams.map(t => `<div class="rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 transition hover:-translate-y-1 hover:bg-white/[0.08]"><div class="mb-6 flex h-20 w-20 items-center justify-center rounded-[1.75rem] bg-emerald-400 text-3xl font-black text-slate-950">${t.short}</div><h3 class="text-xl font-black text-white">${t.name}</h3><p class="mt-2 text-sm leading-6 text-slate-400">พื้นที่สำหรับข้อมูลทีม สีเสื้อ ผู้จัดการทีม และเป้าหมายฤดูกาล</p></div>`).join('');
+    document.getElementById('newsGrid').innerHTML = news.map(n => `<div class="rounded-[2rem] border border-white/10 bg-white/[0.05] p-6"><span class="rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-black text-emerald-300">${n[0]}</span><h3 class="mt-5 text-xl font-black leading-tight text-white">${n[1]}</h3><p class="mt-3 text-sm leading-6 text-slate-400">${n[2]}</p></div>`).join('');
+    renderFixtures(1);
+  </script>
+</body>
+</html>

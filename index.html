@@ -1,182 +1,1136 @@
 <!doctype html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NEW LIFE CHAMPIONS LEAGUE 2026</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    .glass { background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.1); }
+    :root {
+      --bg: #020617;
+      --card: rgba(255,255,255,.06);
+      --line: rgba(255,255,255,.12);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --green: #34d399;
+      --cyan: #22d3ee;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Tahoma, sans-serif;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(52,211,153,.20), transparent 35%),
+        radial-gradient(circle at 100% 20%, rgba(34,211,238,.14), transparent 30%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(2,6,23,.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      background: white;
+      color: #020617;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-weight: 900;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 4px;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--green);
+      letter-spacing: .18em;
+      font-size: 11px;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: #cbd5e1;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      padding: 12px 18px;
+      background: white;
+      color: #020617;
+      font-weight: 900;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: #020617;
+    }
+
+    .btn-dark {
+      background: #020617;
+      color: white;
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,.06);
+      color: white;
+      border: 1px solid var(--line);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 42px;
+      align-items: center;
+      padding: 72px 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(52,211,153,.12);
+      border: 1px solid rgba(52,211,153,.35);
+      color: #bbf7d0;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 22px 0 18px;
+      font-size: 72px;
+      line-height: .92;
+      letter-spacing: -.06em;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, var(--green), #a5f3fc, white);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      max-width: 650px;
+      color: #cbd5e1;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .actions {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .stats {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 520px;
+    }
+
+    .stat {
+      padding: 22px;
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--green);
+      font-size: 30px;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .card {
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      box-shadow: 0 28px 80px rgba(16,185,129,.14);
+    }
+
+    .next-head {
+      padding: 28px;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      color: #020617;
+    }
+
+    .next-head small {
+      font-weight: 900;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+    }
+
+    .next-head h2 {
+      margin: 8px 0 6px;
+      font-size: 32px;
+    }
+
+    .next-list {
+      padding: 16px;
+    }
+
+    .next-match {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .next-match:last-child {
+      border-bottom: 0;
+    }
+
+    .time {
+      text-align: center;
+      padding: 10px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.08);
+      color: #bbf7d0;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    section {
+      padding: 56px 0;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin: 0 auto 30px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      margin: 10px 0;
+      font-size: 44px;
+      line-height: 1;
+    }
+
+    .section-title p {
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 18px;
+    }
+
+    .tab {
+      min-width: 86px;
+      border: 0;
+      border-radius: 16px;
+      padding: 13px 16px;
+      background: rgba(255,255,255,.06);
+      color: #cbd5e1;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      background: var(--green);
+      color: #020617;
+    }
+
+    .fixture-box {
+      padding: 26px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+    }
+
+    .fixture-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .fixture-head h3 {
+      margin: 4px 0 0;
+      font-size: 26px;
+    }
+
+    .fixture-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .fixture-card {
+      padding: 18px;
+      background: rgba(2,6,23,.58);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+    }
+
+    .fixture-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .fixture-time {
+      padding: 7px 10px;
+      border-radius: 12px;
+      background: var(--green);
+      color: #020617;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .status {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .teams-line {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .vs {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .score {
+      font-size: 20px;
+      color: white;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 820px;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th {
+      padding: 15px;
+      background: rgba(255,255,255,.08);
+      color: #cbd5e1;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    td {
+      padding: 15px;
+      border-top: 1px solid var(--line);
+      color: #cbd5e1;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .rank {
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .team-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-weight: 900;
+    }
+
+    .team-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 15px;
+      background: var(--green);
+      color: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      font-weight: 900;
+    }
+
+    .team-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: white;
+      padding: 3px;
+    }
+
+    .search {
+      max-width: 420px;
+      margin: 0 auto 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      border-radius: 16px;
+      padding: 12px 14px;
+    }
+
+    .search input {
+      flex: 1;
+      border: 0;
+      outline: 0;
+      color: white;
+      background: transparent;
+    }
+
+    .team-grid,
+    .news-grid,
+    .sponsor-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .news-grid,
+    .sponsor-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .team-card,
+    .news-card,
+    .sponsor-card {
+      padding: 22px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+    }
+
+    .team-card .team-icon {
+      width: 74px;
+      height: 74px;
+      border-radius: 24px;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(52,211,153,.14);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .muted {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 13px;
+    }
+
+    .cta {
+      padding: 42px;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      color: #020617;
+      border-radius: 36px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .cta h2 {
+      margin: 6px 0 12px;
+      font-size: 42px;
+      line-height: 1;
+    }
+
+    .cta p {
+      max-width: 720px;
+      color: #0f172a;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    .cta-actions {
+      display: grid;
+      gap: 10px;
+    }
+
+    .error-box {
+      display: none;
+      max-width: 1180px;
+      margin: 18px auto 0;
+      padding: 14px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(251,113,133,.35);
+      background: rgba(251,113,133,.12);
+      color: #fecdd3;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      padding: 28px 0;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 44px 0;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .section-title h2 {
+        font-size: 34px;
+      }
+
+      .fixture-grid,
+      .team-grid,
+      .news-grid,
+      .sponsor-grid,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      h1 {
+        font-size: 40px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .fixture-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
-<body class="bg-slate-950 text-white">
-  <nav class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur-xl">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
-      <div class="flex items-center gap-3">
-        <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-xl font-black text-slate-950">NL</div>
+
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <div class="brand-logo" id="leagueLogo">NL</div>
         <div>
-          <p class="text-sm font-black leading-none">NEW LIFE</p>
-          <p class="text-xs font-bold tracking-[0.2em] text-emerald-300">CHAMPIONS LEAGUE 2026</p>
+          <div>NEW LIFE</div>
+          <small>CHAMPIONS LEAGUE 2026</small>
         </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#fixtures">ตารางแข่ง</a>
+        <a href="#table">ตารางคะแนน</a>
+        <a href="#teams">ทีม</a>
+        <a href="#news">ข่าว</a>
+        <a href="#contact">ติดต่อ</a>
       </div>
-      <div class="hidden items-center gap-6 text-sm font-semibold text-slate-300 md:flex">
-        <a href="#fixtures" class="hover:text-white">ตารางแข่ง</a>
-        <a href="#table" class="hover:text-white">ตารางคะแนน</a>
-        <a href="#teams" class="hover:text-white">ทีม</a>
-        <a href="#contact" class="hover:text-white">ติดต่อ</a>
-      </div>
-      <a href="#contact" class="rounded-2xl bg-emerald-400 px-5 py-3 font-black text-slate-950 hover:bg-emerald-300">สมัครทีม</a>
+
+      <a href="#contact" class="btn btn-green">สมัครทีม</a>
     </div>
   </nav>
 
+  <div id="errorBox" class="error-box"></div>
+
   <main>
-    <section class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 md:grid-cols-[1.1fr_0.9fr] md:px-8 md:py-24">
+    <section class="container hero">
       <div>
-        <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-xs font-bold text-emerald-200">
-          ★ ฟุตบอลลีก 8 ทีม / 7 สัปดาห์ / แข่งทุกวันอาทิตย์
-        </div>
-        <h1 class="max-w-4xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
+        <div class="pill">★ ฟุตบอลลีก 8 ทีม / 7 สัปดาห์ / แข่งทุกวันอาทิตย์</div>
+
+        <h1>
           NEW LIFE<br>
-          <span class="bg-gradient-to-r from-emerald-300 via-cyan-200 to-white bg-clip-text text-transparent">CHAMPIONS LEAGUE</span>
+          <span class="gradient">CHAMPIONS LEAGUE</span>
         </h1>
-        <p class="mt-6 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
+
+        <p class="lead">
           เว็บหลักสำหรับประกาศข่าว ตารางแข่งขัน ตารางคะแนน ทีมที่เข้าร่วม และข้อมูลผู้สนับสนุนของลีกฟุตบอล NEW LIFE CHAMPIONS LEAGUE 2026
         </p>
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="#fixtures" class="inline-flex items-center justify-center rounded-2xl bg-white px-7 py-3 font-black text-slate-950 hover:bg-slate-200">ดูตารางแข่งขัน →</a>
-          <a href="#contact" class="inline-flex items-center justify-center rounded-2xl border border-white/20 bg-white/5 px-7 py-3 font-black text-white hover:bg-white/10">ติดต่อฝ่ายจัด</a>
+
+        <div class="actions">
+          <a class="btn" href="#fixtures">ดูตารางแข่งขัน →</a>
+          <a class="btn btn-ghost" href="#contact">ติดต่อฝ่ายจัด</a>
         </div>
-        <div class="mt-10 grid max-w-xl grid-cols-3 gap-3">
-          <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-center"><p class="text-3xl font-black text-emerald-300">8</p><p class="mt-1 text-xs font-bold text-slate-400">ทีม</p></div>
-          <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-center"><p class="text-3xl font-black text-emerald-300">28</p><p class="mt-1 text-xs font-bold text-slate-400">แมตช์</p></div>
-          <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-center"><p class="text-3xl font-black text-emerald-300">7</p><p class="mt-1 text-xs font-bold text-slate-400">สัปดาห์</p></div>
+
+        <div class="stats">
+          <div class="stat"><strong id="statTeams">8</strong><span>ทีม</span></div>
+          <div class="stat"><strong id="statMatches">28</strong><span>แมตช์</span></div>
+          <div class="stat"><strong id="statWeeks">7</strong><span>สัปดาห์</span></div>
         </div>
       </div>
 
-      <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] shadow-2xl shadow-emerald-950/40">
-        <div class="bg-gradient-to-br from-emerald-400 to-cyan-400 p-6 text-slate-950">
-          <p class="text-xs font-black uppercase tracking-[0.3em]">Next Matchday</p>
-          <h3 class="mt-2 text-3xl font-black">MATCH WEEK 1</h3>
-          <p class="mt-2 text-sm font-bold">อาทิตย์ 5 กรกฎาคม 2569</p>
+      <div class="card">
+        <div class="next-head">
+          <small>Next Matchday</small>
+          <h2 id="nextWeekTitle">MATCH WEEK 1</h2>
+          <div id="nextDate">กำลังโหลดข้อมูล...</div>
         </div>
-        <div id="nextMatches" class="divide-y divide-white/10 p-4"></div>
+        <div class="next-list" id="nextList">
+          กำลังโหลดตารางแข่งขันจาก Google Sheets...
+        </div>
       </div>
     </section>
 
-    <section id="fixtures" class="mx-auto max-w-7xl px-4 py-14 md:px-8">
-      <div class="mx-auto mb-8 max-w-3xl text-center">
-        <p class="mb-2 text-xs font-black uppercase tracking-[0.35em] text-emerald-300">Fixtures</p>
-        <h2 class="text-3xl font-black tracking-tight text-white md:text-5xl">ตารางแข่งขัน</h2>
-        <p class="mt-3 text-sm leading-7 text-slate-300 md:text-base">ระบบลีกพบกันหมด 8 ทีม แข่ง 7 สัปดาห์ คู่ละ 2 ชั่วโมง พัก 30 นาทีระหว่างคู่ที่ 2 และคู่ที่ 3</p>
+    <section class="container" id="fixtures">
+      <div class="section-title">
+        <div class="eyebrow">Fixtures</div>
+        <h2>ตารางแข่งขัน</h2>
+        <p>ระบบลีกพบกันหมด 8 ทีม แข่ง 7 สัปดาห์ คู่ละ 2 ชั่วโมง พัก 30 นาทีระหว่างคู่ที่ 2 และคู่ที่ 3</p>
       </div>
-      <div id="weekTabs" class="mb-6 flex gap-2 overflow-x-auto pb-2"></div>
-      <div class="rounded-[2rem] border border-white/10 bg-white/[0.05] p-5 md:p-8">
-        <div class="mb-6 flex flex-col justify-between gap-2 md:flex-row md:items-center">
+
+      <div class="tabs" id="weekTabs"></div>
+
+      <div class="fixture-box">
+        <div class="fixture-head">
           <div>
-            <p id="matchWeekLabel" class="text-sm font-bold text-emerald-300">Match Week 1</p>
-            <h3 id="matchDateLabel" class="text-2xl font-black text-white">อาทิตย์ 5 กรกฎาคม 2569</h3>
+            <div class="eyebrow" id="fixtureWeekLabel">Match Week</div>
+            <h3 id="fixtureDate">กำลังโหลด...</h3>
           </div>
-          <div class="rounded-2xl bg-white/5 px-4 py-3 text-sm text-slate-300">เริ่มคู่แรก 09:00 น.</div>
+          <div class="btn btn-ghost">เริ่มคู่แรก 09:00 น.</div>
         </div>
-        <div id="fixtureGrid" class="grid gap-3 md:grid-cols-2"></div>
+
+        <div class="fixture-grid" id="fixtureGrid"></div>
       </div>
     </section>
 
-    <section id="table" class="mx-auto max-w-7xl px-4 py-14 md:px-8">
-      <div class="mx-auto mb-8 max-w-3xl text-center">
-        <p class="mb-2 text-xs font-black uppercase tracking-[0.35em] text-emerald-300">Standings</p>
-        <h2 class="text-3xl font-black tracking-tight text-white md:text-5xl">ตารางคะแนน</h2>
-        <p class="mt-3 text-sm leading-7 text-slate-300 md:text-base">หลังจบแต่ละสัปดาห์ สามารถอัปเดตผลการแข่งขันและอันดับทีมได้ทันที</p>
+    <section class="container" id="table">
+      <div class="section-title">
+        <div class="eyebrow">Standings</div>
+        <h2>ตารางคะแนน</h2>
+        <p>กรอกผลแข่งใน Google Sheets แล้วเว็บจะคำนวณอันดับอัตโนมัติ</p>
       </div>
-      <div class="overflow-x-auto rounded-[2rem] border border-white/10 bg-white/[0.05]">
-        <table class="w-full min-w-[760px] text-left text-sm">
-          <thead class="bg-white/10 text-xs uppercase tracking-wider text-slate-300">
+
+      <div class="table-wrap">
+        <table>
+          <thead>
             <tr>
-              <th class="px-5 py-4">อันดับ</th><th class="px-5 py-4">ทีม</th><th class="px-5 py-4 text-center">แข่ง</th><th class="px-5 py-4 text-center">ชนะ</th><th class="px-5 py-4 text-center">เสมอ</th><th class="px-5 py-4 text-center">แพ้</th><th class="px-5 py-4 text-center">ได้</th><th class="px-5 py-4 text-center">เสีย</th><th class="px-5 py-4 text-center">แต้ม</th>
+              <th>อันดับ</th>
+              <th>ทีม</th>
+              <th class="center">แข่ง</th>
+              <th class="center">ชนะ</th>
+              <th class="center">เสมอ</th>
+              <th class="center">แพ้</th>
+              <th class="center">ได้</th>
+              <th class="center">เสีย</th>
+              <th class="center">ผลต่าง</th>
+              <th class="center">แต้ม</th>
             </tr>
           </thead>
-          <tbody id="standingsBody" class="divide-y divide-white/10"></tbody>
+          <tbody id="standingsBody"></tbody>
         </table>
       </div>
     </section>
 
-    <section id="teams" class="mx-auto max-w-7xl px-4 py-14 md:px-8">
-      <div class="mx-auto mb-8 max-w-3xl text-center">
-        <p class="mb-2 text-xs font-black uppercase tracking-[0.35em] text-emerald-300">Teams</p>
-        <h2 class="text-3xl font-black tracking-tight text-white md:text-5xl">ทีมเข้าร่วม</h2>
-        <p class="mt-3 text-sm leading-7 text-slate-300 md:text-base">ใส่โลโก้จริง สีประจำทีม รายชื่อนักเตะ และลิงก์โปรไฟล์ทีมได้ในเวอร์ชันถัดไป</p>
+    <section class="container" id="teams">
+      <div class="section-title">
+        <div class="eyebrow">Teams</div>
+        <h2>ทีมเข้าร่วม</h2>
+        <p>ข้อมูลทีมดึงจากแท็บ teams ใน Google Sheets ช่อง logo ใส่ลิงก์รูปโลโก้ได้</p>
       </div>
-      <div id="teamsGrid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"></div>
+
+      <div class="search">
+        <span>ค้นหา</span>
+        <input id="teamSearch" type="search" placeholder="ค้นหาทีม">
+      </div>
+
+      <div class="team-grid" id="teamGrid"></div>
     </section>
 
-    <section class="mx-auto max-w-7xl px-4 py-14 md:px-8">
-      <div class="mx-auto mb-8 max-w-3xl text-center">
-        <p class="mb-2 text-xs font-black uppercase tracking-[0.35em] text-emerald-300">News</p>
-        <h2 class="text-3xl font-black tracking-tight text-white md:text-5xl">ข่าวและประกาศ</h2>
+    <section class="container" id="news">
+      <div class="section-title">
+        <div class="eyebrow">News</div>
+        <h2>ข่าวและประกาศ</h2>
       </div>
-      <div id="newsGrid" class="grid gap-4 md:grid-cols-3"></div>
+
+      <div class="news-grid" id="newsGrid"></div>
     </section>
 
-    <section id="contact" class="mx-auto max-w-7xl px-4 py-14 md:px-8 md:pb-24">
-      <div class="overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-emerald-400 to-cyan-400 p-8 text-slate-950 md:p-12">
-        <div class="grid items-center gap-8 md:grid-cols-[1fr_auto]">
-          <div>
-            <p class="mb-2 text-xs font-black uppercase tracking-[0.35em]">Partner With Us</p>
-            <h2 class="text-3xl font-black tracking-tight md:text-5xl">เปิดรับทีม / สปอนเซอร์ / ร้านค้าพาร์ทเนอร์</h2>
-            <p class="mt-4 max-w-2xl text-sm font-semibold leading-7 text-slate-800 md:text-base">เหมาะสำหรับธุรกิจที่ต้องการเข้าถึงกลุ่มนักกีฬา ผู้ปกครอง แฟนบอลท้องถิ่น และคอมมูนิตี้ฟุตบอลเยาวชน</p>
-          </div>
-          <div class="grid gap-3 sm:grid-cols-3 md:grid-cols-1">
-            <a class="inline-flex justify-center rounded-2xl bg-slate-950 px-5 py-3 font-black text-white hover:bg-slate-800" href="#">สมัครทีม</a>
-            <a class="inline-flex justify-center rounded-2xl bg-white px-5 py-3 font-black text-slate-950 hover:bg-slate-100" href="#">เป็นสปอนเซอร์</a>
-            <a class="inline-flex justify-center rounded-2xl bg-white/40 px-5 py-3 font-black text-slate-950 hover:bg-white/50" href="#">ติดต่อฝ่ายจัด</a>
-          </div>
+    <section class="container" id="sponsors">
+      <div class="section-title">
+        <div class="eyebrow">Sponsors</div>
+        <h2>ผู้สนับสนุน</h2>
+      </div>
+
+      <div class="sponsor-grid" id="sponsorGrid"></div>
+    </section>
+
+    <section class="container" id="contact">
+      <div class="cta">
+        <div>
+          <div class="eyebrow" style="color:#064e3b;">Partner With Us</div>
+          <h2>เปิดรับทีม / สปอนเซอร์ / ร้านค้าพาร์ทเนอร์</h2>
+          <p>เหมาะสำหรับธุรกิจที่ต้องการเข้าถึงกลุ่มนักกีฬา ผู้ปกครอง แฟนบอลท้องถิ่น และคอมมูนิตี้ฟุตบอลเยาวชน</p>
+        </div>
+
+        <div class="cta-actions">
+          <a class="btn btn-dark" href="#">สมัครทีม</a>
+          <a class="btn" href="#">เป็นสปอนเซอร์</a>
+          <a class="btn btn-ghost" href="#" style="color:#020617;border-color:rgba(2,6,23,.25);background:rgba(255,255,255,.35);">ติดต่อฝ่ายจัด</a>
         </div>
       </div>
     </section>
+
+    <div class="footer">NEW LIFE CHAMPIONS LEAGUE 2026</div>
   </main>
 
   <script>
-    const teams = ["TEAM A","TEAM B","TEAM C","TEAM D","TEAM E","TEAM F","TEAM G","TEAM H"].map((name, i) => ({ name, short: String.fromCharCode(65+i), played:0, win:0, draw:0, lose:0, gf:0, ga:0, pts:0 }));
-    const fixtures = [
-      {week:1,date:"อาทิตย์ 5 กรกฎาคม 2569",matches:[["09:00","TEAM A","TEAM B"],["11:00","TEAM C","TEAM D"],["13:30","TEAM E","TEAM F"],["15:30","TEAM G","TEAM H"]]},
-      {week:2,date:"อาทิตย์ 12 กรกฎาคม 2569",matches:[["09:00","TEAM A","TEAM C"],["11:00","TEAM B","TEAM D"],["13:30","TEAM E","TEAM G"],["15:30","TEAM F","TEAM H"]]},
-      {week:3,date:"อาทิตย์ 19 กรกฎาคม 2569",matches:[["09:00","TEAM A","TEAM D"],["11:00","TEAM B","TEAM C"],["13:30","TEAM E","TEAM H"],["15:30","TEAM F","TEAM G"]]},
-      {week:4,date:"อาทิตย์ 26 กรกฎาคม 2569",matches:[["09:00","TEAM A","TEAM E"],["11:00","TEAM B","TEAM F"],["13:30","TEAM C","TEAM G"],["15:30","TEAM D","TEAM H"]]},
-      {week:5,date:"อาทิตย์ 2 สิงหาคม 2569",matches:[["09:00","TEAM A","TEAM F"],["11:00","TEAM B","TEAM E"],["13:30","TEAM C","TEAM H"],["15:30","TEAM D","TEAM G"]]},
-      {week:6,date:"อาทิตย์ 9 สิงหาคม 2569",matches:[["09:00","TEAM A","TEAM G"],["11:00","TEAM B","TEAM H"],["13:30","TEAM C","TEAM E"],["15:30","TEAM D","TEAM F"]]},
-      {week:7,date:"อาทิตย์ 16 สิงหาคม 2569",matches:[["09:00","TEAM A","TEAM H"],["11:00","TEAM B","TEAM G"],["13:30","TEAM C","TEAM F"],["15:30","TEAM D","TEAM E"]]}
-    ];
-    const news = [
-      ["ประกาศ","เปิดตัว NEW LIFE CHAMPIONS LEAGUE 2026","ฟุตบอลลีก 8 ทีม แข่งทุกวันอาทิตย์ ระบบลีกเต็มรูปแบบ 7 สัปดาห์"],
-      ["ตารางแข่ง","คู่แรกเริ่ม 09:00 น. ต่อเนื่อง 4 คู่ต่อวัน","พัก 30 นาทีระหว่างคู่ที่ 2 และคู่ที่ 3 เพื่อจัดการสนามและถ่ายทอดสด"],
-      ["พาร์ทเนอร์","เปิดรับผู้สนับสนุนและร้านค้าในพื้นที่","เหมาะกับแบรนด์ท้องถิ่น ร้านอาหาร โรงเรียน สถานประกอบการ และธุรกิจกีฬา"]
-    ];
+    const API_URL = "https://script.google.com/macros/s/AKfycbzxg9E2fH4d0wGaWFhLShWFgme5-5tCxadiyGRGKnBZSUFzmNpgM-6qidrU16_lc-HB/exec";
 
-    function matchCard([time, home, away]) {
-      return `<div class="rounded-3xl border border-white/10 bg-slate-950/60 p-5"><div class="mb-4 flex items-center justify-between"><span class="rounded-xl bg-emerald-400 px-3 py-1 text-xs font-black text-slate-950">${time}</span><span class="text-xs font-bold text-slate-400">สนามหลัก</span></div><div class="grid grid-cols-[1fr_auto_1fr] items-center gap-3 text-center"><p class="font-black text-white">${home}</p><p class="rounded-full bg-white/10 px-3 py-1 text-xs font-black text-slate-400">VS</p><p class="font-black text-white">${away}</p></div></div>`;
+    const fallbackData = {
+      teams: [
+        { id: "A", name: "TEAM A", short: "A", logo: "", color: "#34d399" },
+        { id: "B", name: "TEAM B", short: "B", logo: "", color: "#34d399" },
+        { id: "C", name: "TEAM C", short: "C", logo: "", color: "#34d399" },
+        { id: "D", name: "TEAM D", short: "D", logo: "", color: "#34d399" },
+        { id: "E", name: "TEAM E", short: "E", logo: "", color: "#34d399" },
+        { id: "F", name: "TEAM F", short: "F", logo: "", color: "#34d399" },
+        { id: "G", name: "TEAM G", short: "G", logo: "", color: "#34d399" },
+        { id: "H", name: "TEAM H", short: "H", logo: "", color: "#34d399" }
+      ],
+      fixtures: [
+        { week: "1", date: "อาทิตย์ 5 กรกฎาคม 2569", time: "09:00", home: "TEAM A", away: "TEAM B", field: "สนามหลัก", home_score: "", away_score: "", status: "upcoming" },
+        { week: "1", date: "อาทิตย์ 5 กรกฎาคม 2569", time: "11:00", home: "TEAM C", away: "TEAM D", field: "สนามหลัก", home_score: "", away_score: "", status: "upcoming" },
+        { week: "1", date: "อาทิตย์ 5 กรกฎาคม 2569", time: "13:30", home: "TEAM E", away: "TEAM F", field: "สนามหลัก", home_score: "", away_score: "", status: "upcoming" },
+        { week: "1", date: "อาทิตย์ 5 กรกฎาคม 2569", time: "15:30", home: "TEAM G", away: "TEAM H", field: "สนามหลัก", home_score: "", away_score: "", status: "upcoming" }
+      ],
+      news: [
+        { tag: "ประกาศ", title: "เปิดตัว NEW LIFE CHAMPIONS LEAGUE 2026", desc: "ฟุตบอลลีก 8 ทีม แข่งทุกวันอาทิตย์ ระบบลีกเต็มรูปแบบ 7 สัปดาห์" }
+      ],
+      sponsors: []
+    };
+
+    let state = {
+      teams: [],
+      fixtures: [],
+      news: [],
+      sponsors: [],
+      activeWeek: "1",
+      teamQuery: ""
+    };
+
+    function clean(value) {
+      return String(value ?? "").trim();
     }
-    function nextMatchRow([time, home, away]) {
-      return `<div class="grid grid-cols-[70px_1fr] items-center gap-4 py-4"><div class="rounded-2xl bg-white/10 px-3 py-2 text-center text-sm font-black text-emerald-200">${time}</div><div><p class="text-sm font-black text-white">${home} <span class="text-slate-500">vs</span> ${away}</p><p class="mt-1 text-xs text-slate-400">สนาม: สนามหลัก</p></div></div>`;
+
+    function esc(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
     }
-    function renderFixtures(week) {
-      const f = fixtures.find(x => x.week === week) || fixtures[0];
-      document.getElementById('matchWeekLabel').textContent = `Match Week ${f.week}`;
-      document.getElementById('matchDateLabel').textContent = f.date;
-      document.getElementById('fixtureGrid').innerHTML = f.matches.map(matchCard).join('');
-      document.querySelectorAll('[data-week]').forEach(btn => {
-        if (Number(btn.dataset.week) === week) btn.className = 'min-w-[92px] rounded-2xl px-4 py-3 text-sm font-black transition bg-emerald-400 text-slate-950';
-        else btn.className = 'min-w-[92px] rounded-2xl px-4 py-3 text-sm font-black transition bg-white/5 text-slate-300 hover:bg-white/10';
+
+    function isFinished(match) {
+      return clean(match.status).toLowerCase() === "finished" &&
+        clean(match.home_score) !== "" &&
+        clean(match.away_score) !== "";
+    }
+
+    function teamLogo(team) {
+      const logo = clean(team.logo);
+      const short = esc(team.short || team.id || "?");
+      const color = clean(team.color) || "#34d399";
+
+      if (logo) {
+        return `
+          <div class="team-icon" style="background:${esc(color)}">
+            <img src="${esc(logo)}" alt="${esc(team.name)}">
+          </div>
+        `;
+      }
+
+      return `
+        <div class="team-icon" style="background:${esc(color)}">
+          ${short}
+        </div>
+      `;
+    }
+
+    function calculateStandings(teams, fixtures) {
+      const table = new Map();
+
+      teams.forEach(team => {
+        table.set(clean(team.name), {
+          ...team,
+          played: 0,
+          win: 0,
+          draw: 0,
+          lose: 0,
+          gf: 0,
+          ga: 0,
+          gd: 0,
+          pts: 0
+        });
       });
+
+      fixtures.forEach(match => {
+        if (!isFinished(match)) return;
+
+        const homeName = clean(match.home);
+        const awayName = clean(match.away);
+        const homeScore = Number(match.home_score);
+        const awayScore = Number(match.away_score);
+
+        if (!table.has(homeName)) {
+          table.set(homeName, { id: homeName, name: homeName, short: homeName.slice(0,2), logo: "", color: "#34d399", played: 0, win: 0, draw: 0, lose: 0, gf: 0, ga: 0, gd: 0, pts: 0 });
+        }
+
+        if (!table.has(awayName)) {
+          table.set(awayName, { id: awayName, name: awayName, short: awayName.slice(0,2), logo: "", color: "#34d399", played: 0, win: 0, draw: 0, lose: 0, gf: 0, ga: 0, gd: 0, pts: 0 });
+        }
+
+        const home = table.get(homeName);
+        const away = table.get(awayName);
+
+        home.played += 1;
+        away.played += 1;
+
+        home.gf += homeScore;
+        home.ga += awayScore;
+        away.gf += awayScore;
+        away.ga += homeScore;
+
+        if (homeScore > awayScore) {
+          home.win += 1;
+          home.pts += 3;
+          away.lose += 1;
+        } else if (homeScore < awayScore) {
+          away.win += 1;
+          away.pts += 3;
+          home.lose += 1;
+        } else {
+          home.draw += 1;
+          away.draw += 1;
+          home.pts += 1;
+          away.pts += 1;
+        }
+
+        home.gd = home.gf - home.ga;
+        away.gd = away.gf - away.ga;
+      });
+
+      return Array.from(table.values()).sort((a, b) =>
+        b.pts - a.pts ||
+        b.gd - a.gd ||
+        b.gf - a.gf ||
+        clean(a.name).localeCompare(clean(b.name), "th")
+      );
     }
-    document.getElementById('nextMatches').innerHTML = fixtures[0].matches.map(nextMatchRow).join('');
-    document.getElementById('weekTabs').innerHTML = fixtures.map(f => `<button data-week="${f.week}" class="min-w-[92px] rounded-2xl px-4 py-3 text-sm font-black transition bg-white/5 text-slate-300 hover:bg-white/10">Week ${f.week}</button>`).join('');
-    document.getElementById('weekTabs').addEventListener('click', e => { if (e.target.dataset.week) renderFixtures(Number(e.target.dataset.week)); });
-    document.getElementById('standingsBody').innerHTML = teams.map((t, i) => `<tr class="hover:bg-white/[0.03]"><td class="px-5 py-4 font-black text-emerald-300">${i+1}</td><td class="px-5 py-4"><div class="flex items-center gap-3"><div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-400 text-sm font-black text-slate-950">${t.short}</div><span class="font-semibold text-slate-100">${t.name}</span></div></td><td class="px-5 py-4 text-center text-slate-300">0</td><td class="px-5 py-4 text-center text-slate-300">0</td><td class="px-5 py-4 text-center text-slate-300">0</td><td class="px-5 py-4 text-center text-slate-300">0</td><td class="px-5 py-4 text-center text-slate-300">0</td><td class="px-5 py-4 text-center text-slate-300">0</td><td class="px-5 py-4 text-center text-lg font-black text-white">0</td></tr>`).join('');
-    document.getElementById('teamsGrid').innerHTML = teams.map(t => `<div class="rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 transition hover:-translate-y-1 hover:bg-white/[0.08]"><div class="mb-6 flex h-20 w-20 items-center justify-center rounded-[1.75rem] bg-emerald-400 text-3xl font-black text-slate-950">${t.short}</div><h3 class="text-xl font-black text-white">${t.name}</h3><p class="mt-2 text-sm leading-6 text-slate-400">พื้นที่สำหรับข้อมูลทีม สีเสื้อ ผู้จัดการทีม และเป้าหมายฤดูกาล</p></div>`).join('');
-    document.getElementById('newsGrid').innerHTML = news.map(n => `<div class="rounded-[2rem] border border-white/10 bg-white/[0.05] p-6"><span class="rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-black text-emerald-300">${n[0]}</span><h3 class="mt-5 text-xl font-black leading-tight text-white">${n[1]}</h3><p class="mt-3 text-sm leading-6 text-slate-400">${n[2]}</p></div>`).join('');
-    renderFixtures(1);
+
+    function getWeeks(fixtures) {
+      return [...new Set(fixtures.map(item => clean(item.week)).filter(Boolean))]
+        .sort((a, b) => Number(a) - Number(b));
+    }
+
+    function renderStats() {
+      const weeks = getWeeks(state.fixtures);
+
+      document.getElementById("statTeams").textContent = state.teams.length || 0;
+      document.getElementById("statMatches").textContent = state.fixtures.length || 0;
+      document.getElementById("statWeeks").textContent = weeks.length || 0;
+    }
+
+    function renderNextMatchday() {
+      const upcoming = state.fixtures.filter(item => clean(item.status).toLowerCase() !== "finished");
+      const baseWeek = clean((upcoming[0] || state.fixtures[0] || { week: "1" }).week);
+      const matches = state.fixtures.filter(item => clean(item.week) === baseWeek);
+      const first = matches[0] || {};
+
+      document.getElementById("nextWeekTitle").textContent = `MATCH WEEK ${baseWeek || "1"}`;
+      document.getElementById("nextDate").textContent = clean(first.date) || "-";
+
+      document.getElementById("nextList").innerHTML = matches.slice(0, 4).map(match => `
+        <div class="next-match">
+          <div class="time">${esc(match.time)}</div>
+          <div>
+            <div style="font-weight:900;font-size:14px;">
+              ${esc(match.home)} <span style="color:#64748b;">vs</span> ${esc(match.away)}
+            </div>
+            <div class="muted">สนาม: ${esc(match.field)}</div>
+          </div>
+        </div>
+      `).join("") || `<div class="muted">ยังไม่มีข้อมูลตารางแข่งขัน</div>`;
+    }
+
+    function renderFixtures() {
+      const weeks = getWeeks(state.fixtures);
+
+      if (!weeks.includes(state.activeWeek)) {
+        state.activeWeek = weeks[0] || "1";
+      }
+
+      document.getElementById("weekTabs").innerHTML = weeks.map(week => `
+        <button class="tab ${week === state.activeWeek ? "active" : ""}" data-week="${esc(week)}">
+          Week ${esc(week)}
+        </button>
+      `).join("");
+
+      document.querySelectorAll(".tab").forEach(button => {
+        button.addEventListener("click", () => {
+          state.activeWeek = button.dataset.week;
+          renderAll();
+        });
+      });
+
+      const matches = state.fixtures.filter(item => clean(item.week) === state.activeWeek);
+      const first = matches[0] || {};
+
+      document.getElementById("fixtureWeekLabel").textContent = `Match Week ${state.activeWeek || "-"}`;
+      document.getElementById("fixtureDate").textContent = clean(first.date) || "ยังไม่มีข้อมูล";
+
+      document.getElementById("fixtureGrid").innerHTML = matches.map(match => {
+        const finished = isFinished(match);
+        const score = finished
+          ? `<div class="score">${esc(match.home_score)} - ${esc(match.away_score)}</div>`
+          : `<div class="vs">VS</div>`;
+
+        const status = clean(match.status).toLowerCase();
+        const statusText =
+          status === "finished" ? "จบการแข่งขัน" :
+          status === "live" ? "กำลังแข่งขัน" :
+          "ยังไม่แข่งขัน";
+
+        return `
+          <div class="fixture-card">
+            <div class="fixture-meta">
+              <span class="fixture-time">${esc(match.time)}</span>
+              <span class="status">${statusText}</span>
+            </div>
+
+            <div class="teams-line">
+              <div>${esc(match.home)}</div>
+              ${score}
+              <div>${esc(match.away)}</div>
+            </div>
+
+            <div class="muted" style="text-align:center;margin-top:12px;">
+              สนาม: ${esc(match.field)}
+            </div>
+          </div>
+        `;
+      }).join("") || `<div class="muted">ยังไม่มีข้อมูลใน Week นี้</div>`;
+    }
+
+    function renderStandings() {
+      const standings = calculateStandings(state.teams, state.fixtures);
+
+      document.getElementById("standingsBody").innerHTML = standings.map((team, index) => `
+        <tr>
+          <td class="rank">${index + 1}</td>
+          <td>
+            <div class="team-badge">
+              ${teamLogo(team)}
+              <span>${esc(team.name)}</span>
+            </div>
+          </td>
+          <td class="center">${team.played}</td>
+          <td class="center">${team.win}</td>
+          <td class="center">${team.draw}</td>
+          <td class="center">${team.lose}</td>
+          <td class="center">${team.gf}</td>
+          <td class="center">${team.ga}</td>
+          <td class="center">${team.gd}</td>
+          <td class="center" style="color:white;font-size:18px;font-weight:900;">${team.pts}</td>
+        </tr>
+      `).join("");
+    }
+
+    function renderTeams() {
+      const q = state.teamQuery.toLowerCase();
+
+      const teams = state.teams.filter(team =>
+        clean(team.name).toLowerCase().includes(q)
+      );
+
+      document.getElementById("teamGrid").innerHTML = teams.map(team => `
+        <div class="team-card">
+          ${teamLogo(team)}
+          <h3>${esc(team.name)}</h3>
+          <p class="muted">รหัสทีม: ${esc(team.id)} / ชื่อย่อ: ${esc(team.short)}</p>
+        </div>
+      `).join("") || `<div class="muted">ไม่พบทีม</div>`;
+    }
+
+    function renderNews() {
+      document.getElementById("newsGrid").innerHTML = state.news.map(item => `
+        <div class="news-card">
+          <span class="tag">${esc(item.tag)}</span>
+          <h3>${esc(item.title)}</h3>
+          <p class="muted">${esc(item.desc)}</p>
+        </div>
+      `).join("") || `<div class="muted">ยังไม่มีข่าวประกาศ</div>`;
+    }
+
+    function renderSponsors() {
+      document.getElementById("sponsorGrid").innerHTML = state.sponsors.map(item => `
+        <a class="sponsor-card" href="${esc(item.website || "#")}" target="_blank" rel="noopener">
+          <span class="tag">Sponsor</span>
+          <h3>${esc(item.name)}</h3>
+          <p class="muted">เว็บไซต์ / ช่องทางติดต่อผู้สนับสนุน</p>
+        </a>
+      `).join("") || `<div class="muted">ยังไม่มีข้อมูลผู้สนับสนุน</div>`;
+    }
+
+    function renderAll() {
+      renderStats();
+      renderNextMatchday();
+      renderFixtures();
+      renderStandings();
+      renderTeams();
+      renderNews();
+      renderSponsors();
+    }
+
+    async function loadData() {
+      try {
+        const response = await fetch(API_URL, { cache: "no-store" });
+
+        if (!response.ok) {
+          throw new Error(`API HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        state.teams = Array.isArray(data.teams) && data.teams.length ? data.teams : fallbackData.teams;
+        state.fixtures = Array.isArray(data.fixtures) && data.fixtures.length ? data.fixtures : fallbackData.fixtures;
+        state.news = Array.isArray(data.news) && data.news.length ? data.news : fallbackData.news;
+        state.sponsors = Array.isArray(data.sponsors) ? data.sponsors : fallbackData.sponsors;
+
+        renderAll();
+      } catch (error) {
+        console.error(error);
+
+        document.getElementById("errorBox").style.display = "block";
+        document.getElementById("errorBox").innerHTML =
+          "ดึงข้อมูลจาก Google Sheets ไม่สำเร็จ เว็บจะแสดงข้อมูลสำรองก่อน<br>" +
+          "ให้เช็ก Apps Script: Deploy > Manage deployments > Who has access ต้องเป็น Anyone";
+
+        state = {
+          ...state,
+          ...fallbackData,
+          activeWeek: "1"
+        };
+
+        renderAll();
+      }
+    }
+
+    document.getElementById("teamSearch").addEventListener("input", event => {
+      state.teamQuery = event.target.value;
+      renderTeams();
+    });
+
+    loadData();
   </script>
 </body>
 </html>
